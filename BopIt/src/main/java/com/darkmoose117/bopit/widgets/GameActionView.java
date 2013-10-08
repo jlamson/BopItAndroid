@@ -3,6 +3,7 @@ package com.darkmoose117.bopit.widgets;
 import android.content.Context;
 import android.content.res.Resources;
 import android.util.AttributeSet;
+import android.widget.FrameLayout;
 
 import com.darkmoose117.bopit.R;
 import com.darkmoose117.bopit.utils.GameAction;
@@ -29,5 +30,7 @@ public class GameActionView extends FontTextView {
         Resources res = getResources();
         setTextColor(GameAction.getColor(action, res));
         setText(GameAction.getName(action, res));
+        ((FrameLayout.LayoutParams) getLayoutParams()).gravity = GameAction.getGravity(action);
+        requestLayout();
     }
 }

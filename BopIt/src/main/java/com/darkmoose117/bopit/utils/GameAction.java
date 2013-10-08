@@ -1,6 +1,7 @@
 package com.darkmoose117.bopit.utils;
 
 import android.content.res.Resources;
+import android.view.Gravity;
 
 import com.darkmoose117.bopit.R;
 
@@ -28,6 +29,12 @@ public class GameAction {
             R.color.red
     };
 
+    public static final int[] ACTION_SCREEN_LOCATION = {
+            Gravity.CENTER,
+            Gravity.TOP | Gravity.CENTER_HORIZONTAL,
+            Gravity.BOTTOM | Gravity.CENTER_HORIZONTAL
+    };
+
     public static String getName(int action, Resources res) {
         checkAction(action);
         return res.getString(ACTION_NAMES[action]);
@@ -36,6 +43,11 @@ public class GameAction {
     public static int getColor(int action, Resources res) {
         checkAction(action);
         return res.getColor(ACTION_COLORS[action]);
+    }
+
+    public static int getGravity(int action) {
+        checkAction(action);
+        return ACTION_SCREEN_LOCATION[action];
     }
 
     public static int getRandomAction() {
