@@ -15,7 +15,7 @@ import com.darkmoose117.bopit.interfaces.GameActionListener;
 public class GameView extends FrameLayout implements GestureDetector.OnGestureListener {
 
     private GestureDetector mGestureDetector;
-    private GameActionListener mGestureListener;
+    private GameActionListener mGameActionListener;
 
     public GameView(Context context) {
         this(context, null);
@@ -41,14 +41,14 @@ public class GameView extends FrameLayout implements GestureDetector.OnGestureLi
         return mGestureDetector.onTouchEvent(event);
     }
 
-    public void setGestureListener(GameActionListener gestureListener) {
-        mGestureListener = gestureListener;
+    public void setGameActionListener(GameActionListener gameActionListener) {
+        mGameActionListener = gameActionListener;
     }
 
     @Override
     public boolean onSingleTapUp(MotionEvent e) {
-        if (mGestureListener != null) {
-            mGestureListener.onGameAction(GameAction.TAP);
+        if (mGameActionListener != null) {
+            mGameActionListener.onGameAction(GameAction.TAP);
             return true;
         }
 
@@ -56,11 +56,17 @@ public class GameView extends FrameLayout implements GestureDetector.OnGestureLi
     }
 
     @Override
-    public boolean onFling(MotionEvent e1, MotionEvent e2, float velocityX, float velocityY) {
-        if (mGestureListener != null) {
-            if (velocityY < 0) mGestureListener.onGameAction(GameAction.SWIPE_UP);
-            else if (velocityY > 0) mGestureListener.onGameAction(GameAction.SWIPE_DOWN);
-            else return false;
+    public boolean onFling(MotionEvent e1, MotionEvent e2, float vX, float vY) {
+        if (mGameActionListener != null) {
+            // TODO figure out how close to horizontal a vertical swipe can be before invalid & vice versa
+            boolean isVertical = Math.abs(vX) < Math.abs(vY);
+            if (isVertical) {
+                if (vY < 0) mGameActionListener.onGameAction(GameAction.SWIPE_UP);
+                else mGameActionListener.onGameAction(GameAction.SWIPE_DOWN);
+            } else {
+                if (vX < 0) mGameActionListener.onGameAction(GameAction.SWIPE_LEFT);
+                else mGameActionListener.onGameAction(GameAction.SWIPE_RIGHT);
+            }
             return true;
         }
 

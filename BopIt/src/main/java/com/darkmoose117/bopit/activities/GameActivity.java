@@ -24,7 +24,7 @@ public class GameActivity extends Activity implements GameActionListener {
         setContentView(R.layout.game_layout);
 
         GameView gameView = (GameView) findViewById(R.id.game_view);
-        gameView.setGestureListener(this);
+        gameView.setGameActionListener(this);
 
         mActionView = (GameActionView) findViewById(R.id.game_action_view);
 

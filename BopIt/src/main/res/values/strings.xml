@@ -25,4 +25,6 @@
     <string name="roboto_regular">Roboto-Regular</string>
     <string name="roboto_thin">Roboto-Thin</string>
     <string name="roboto_thin_italic">Roboto-ThinItalic</string>
+    <string name="action_swipe_left">SWIPE\nLEFT!</string>
+    <string name="action_swipe_right">SWIPE\nRIGHT!</string>
 </resources>

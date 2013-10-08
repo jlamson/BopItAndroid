@@ -3,6 +3,7 @@ package com.darkmoose117.bopit.widgets;
 import android.content.Context;
 import android.content.res.Resources;
 import android.util.AttributeSet;
+import android.view.Gravity;
 import android.widget.FrameLayout;
 
 import com.darkmoose117.bopit.R;
@@ -24,6 +25,7 @@ public class GameActionView extends FontTextView {
         super(context, attrs, defStyle);
 
         setFontFile(R.string.roboto_black);
+        setGravity(Gravity.CENTER_VERTICAL);
     }
 
     public void setAction(int action) {
