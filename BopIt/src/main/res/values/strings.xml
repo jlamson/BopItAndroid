@@ -7,9 +7,9 @@
     <string name="main_play">Play</string>
     <string name="main_leader_board">Leader Board</string>
     <string name="main_options">Options</string>
-    <string name="action_tap">TAP</string>
-    <string name="action_swipe_up">SWIPE UP</string>
-    <string name="action_swipe_down">SWIPE_DOWN</string>
+    <string name="action_tap">TAP!</string>
+    <string name="action_swipe_up">SWIPE UP!</string>
+    <string name="action_swipe_down">SWIPE DOWN!</string>
 
     <!-- Font Names -->
     <string name="lobster">Lobster</string>

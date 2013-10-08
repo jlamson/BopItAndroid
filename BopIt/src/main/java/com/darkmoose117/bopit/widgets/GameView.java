@@ -12,7 +12,7 @@ import com.darkmoose117.bopit.interfaces.GameActionListener;
 /**
  * Created by Joshua Lamson on 10/7/13.
  */
-public class GameView extends View implements GestureDetector.OnGestureListener {
+public class GameView extends FrameLayout implements GestureDetector.OnGestureListener {
 
     private GestureDetector mGestureDetector;
     private GameActionListener mGestureListener;
@@ -32,18 +32,23 @@ public class GameView extends View implements GestureDetector.OnGestureListener 
     }
 
     @Override
+    public boolean onInterceptTouchEvent(MotionEvent ev) {
+        return mGestureDetector.onTouchEvent(ev);
+    }
+
+    @Override
     public boolean onTouchEvent(MotionEvent event) {
         return mGestureDetector.onTouchEvent(event);
     }
 
-    public void setGestureListener(GameGestureListener gestureListener) {
+    public void setGestureListener(GameActionListener gestureListener) {
         mGestureListener = gestureListener;
     }
 
     @Override
     public boolean onSingleTapUp(MotionEvent e) {
         if (mGestureListener != null) {
-            mGestureListener.onGameGesture(GameGesture.TAP);
+            mGestureListener.onGameAction(GameAction.TAP);
             return true;
         }
 
@@ -65,16 +70,18 @@ public class GameView extends View implements GestureDetector.OnGestureListener 
     // NOT NEEDED OVERRIDES
 
     @Override
-    public boolean onDown(MotionEvent e) {
-        return true;
-    }
+    public boolean onScroll(MotionEvent e1,
+                            MotionEvent e2,
+                            float distanceX,
+                            float distanceY)    { return true; }
 
     @Override
-    public void onShowPress(MotionEvent e) { }
+    public boolean onDown(MotionEvent e)        { return true; }
 
     @Override
-    public boolean onScroll(MotionEvent e1, MotionEvent e2, float distanceX, float distanceY) { return false; }
+    public void onLongPress(MotionEvent e)      { }
 
     @Override
-    public void onLongPress(MotionEvent e) { }
+    public void onShowPress(MotionEvent e)      { }
+
 }
