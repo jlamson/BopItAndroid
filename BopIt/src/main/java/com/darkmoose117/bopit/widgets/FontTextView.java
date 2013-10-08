@@ -3,6 +3,7 @@ package com.darkmoose117.bopit.widgets;
 import android.content.Context;
 import android.content.res.TypedArray;
 import android.graphics.Typeface;
+import android.text.TextUtils;
 import android.util.AttributeSet;
 import android.widget.TextView;
 
@@ -12,7 +13,6 @@ import com.darkmoose117.bopit.R;
  * Created by Joshua Lamson on 10/7/13.
  */
 public class FontTextView extends TextView {
-
     private String mFontFile;
 
     public FontTextView(Context context) {
@@ -35,7 +35,7 @@ public class FontTextView extends TextView {
         String fontFile = a.getString(R.styleable.FontTextView_fontFile);
         a.recycle();
 
-        setFontFile(fontFile);
+        if (!TextUtils.isEmpty(fontFile)) setFontFile(fontFile);
     }
 
     /**
@@ -52,6 +52,10 @@ public class FontTextView extends TextView {
                 String.format("fonts/%s.ttf", mFontFile)
         );
         setTypeface(typeface);
+    }
+
+    public void setFontFile(int fontFileResId) {
+        setFontFile(getResources().getString(fontFileResId));
     }
 
     public String getFontFile() {
