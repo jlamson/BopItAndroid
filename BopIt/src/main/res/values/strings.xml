@@ -2,7 +2,11 @@
 <resources>
 
     <string name="app_name">BopIt</string>
-    <string name="action_settings">Settings</string>
-    <string name="hello_world">Hello world!</string>
+
+    <!-- Main Start Screen-->
+    <string name="main_title">BOP It!</string>
+    <string name="main_play">Play</string>
+    <string name="main_leader_board">Leader Board</string>
+    <string name="main_options">Options</string>
 
 </resources>
