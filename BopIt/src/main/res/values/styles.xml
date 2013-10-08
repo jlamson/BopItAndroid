@@ -30,7 +30,7 @@
     <style name="GameView" />
 
     <style name="GameView.ActionView">
-        <item name="android:textSize">@dimen/text_size_title</item>
+        <item name="android:textSize">@dimen/text_size_large</item>
     </style>
 
 
