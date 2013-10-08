@@ -4,10 +4,10 @@ import android.content.Context;
 import android.util.AttributeSet;
 import android.view.GestureDetector;
 import android.view.MotionEvent;
-import android.view.View;
+import android.widget.FrameLayout;
 
-import com.darkmoose117.bopit.enums.GameGesture;
-import com.darkmoose117.bopit.interfaces.GameGestureListener;
+import com.darkmoose117.bopit.utils.GameAction;
+import com.darkmoose117.bopit.interfaces.GameActionListener;
 
 /**
  * Created by Joshua Lamson on 10/7/13.
@@ -15,7 +15,7 @@ import com.darkmoose117.bopit.interfaces.GameGestureListener;
 public class GameView extends View implements GestureDetector.OnGestureListener {
 
     private GestureDetector mGestureDetector;
-    private GameGestureListener mGestureListener;
+    private GameActionListener mGestureListener;
 
     public GameView(Context context) {
         this(context, null);
@@ -53,8 +53,8 @@ public class GameView extends View implements GestureDetector.OnGestureListener 
     @Override
     public boolean onFling(MotionEvent e1, MotionEvent e2, float velocityX, float velocityY) {
         if (mGestureListener != null) {
-            if (velocityY < 0) mGestureListener.onGameGesture(GameGesture.SWIPE_UP);
-            else if (velocityY > 0) mGestureListener.onGameGesture(GameGesture.SWIPE_DOWN);
+            if (velocityY < 0) mGestureListener.onGameAction(GameAction.SWIPE_UP);
+            else if (velocityY > 0) mGestureListener.onGameAction(GameAction.SWIPE_DOWN);
             else return false;
             return true;
         }

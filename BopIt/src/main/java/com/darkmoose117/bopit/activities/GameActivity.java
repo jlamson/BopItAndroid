@@ -5,14 +5,14 @@ import android.os.Bundle;
 import android.widget.Toast;
 
 import com.darkmoose117.bopit.R;
-import com.darkmoose117.bopit.enums.GameGesture;
-import com.darkmoose117.bopit.interfaces.GameGestureListener;
+import com.darkmoose117.bopit.interfaces.GameActionListener;
+import com.darkmoose117.bopit.utils.GameAction;
 import com.darkmoose117.bopit.widgets.GameView;
 
 /**
  * Created by Joshua Lamson on 10/7/13.
  */
-public class GameActivity extends Activity implements GameGestureListener {
+public class GameActivity extends Activity implements GameActionListener {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -24,21 +24,7 @@ public class GameActivity extends Activity implements GameGestureListener {
     }
 
     @Override
-    public void onGameGesture(GameGesture gesture) {
-        String toast;
-        switch (gesture) {
-            case TAP:
-                toast = "TAP";
-                break;
-            case SWIPE_UP:
-                toast = "SWIPE UP";
-                break;
-            case SWIPE_DOWN:
-                toast = "SWIPE DOWN";
-                break;
-            default:
-                throw new IllegalArgumentException("Invalid GameGesture passed to onGameGesture");
-        }
-        Toast.makeText(this, toast, Toast.LENGTH_SHORT).show();
+    public void onGameAction(int action) {
+        Toast.makeText(this, GameAction.getName(action, getResources()), Toast.LENGTH_SHORT).show();
     }
 }
