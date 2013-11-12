@@ -33,5 +33,9 @@
         <item name="android:textSize">@dimen/text_size_large</item>
     </style>
 
+    <style name="GameView.ScoreView">
+        <item name="android:textSize">@dimen/text_size_medium</item>
+        <item name="android:textColor">@color/black</item>
+    </style>
 
 </resources>

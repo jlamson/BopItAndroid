@@ -18,8 +18,10 @@ public class MainActivity extends Activity implements View.OnClickListener {
 
         Button playButton = (Button) findViewById(R.id.main_play_button);
         playButton.setOnClickListener(this);
+
         Button leaderBoardButton = (Button) findViewById(R.id.main_leader_board_button);
         leaderBoardButton.setOnClickListener(this);
+
         Button optionsButton = (Button) findViewById(R.id.main_options_button);
         optionsButton.setOnClickListener(this);
     }

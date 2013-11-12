@@ -27,4 +27,5 @@
     <string name="roboto_thin_italic">Roboto-ThinItalic</string>
     <string name="action_swipe_left">SWIPE\nLEFT!</string>
     <string name="action_swipe_right">SWIPE\nRIGHT!</string>
+    <string name="game_score_initial">GO!</string>
 </resources>
